@@ -15,9 +15,9 @@ public class Main {
      */
     private static void showMenu() {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Currency Converter App:");
         while (true) {
             System.out.print("""
-                    \nCurrency Converter App:
                     1. Convert SEK to USD
                     2. Convert USD to SEK
                     3. Convert SEK to Euro
@@ -29,9 +29,9 @@ public class Main {
                 if (choice == 0) break;
                 System.out.print("Enter amount: ");
                 double amount = getAmount(scanner);
-                System.out.println("\n" + handleInput(choice, amount));
+                System.out.println("\n" + handleInput(choice, amount) + "\n");
             } catch (Exception e) {
-                System.out.println("\nError: " + e.getMessage());
+                System.out.println("\nError: " + e.getMessage() + "\n");
             }
         }
     }
