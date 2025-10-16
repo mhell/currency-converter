@@ -45,7 +45,7 @@ public class Main {
     private static int getChoice(Scanner scanner) throws Exception {
         try {
             int result = Integer.parseInt(scanner.nextLine());
-            if (result > 4) throw new Exception("Incorrect input");
+            if (result > 4 || result < 0) throw new Exception("Incorrect input");
             return result;
         } catch (NumberFormatException e) {
             throw new Exception("incorrect input");
