@@ -10,6 +10,9 @@ public class Main {
         showMenu();
     }
 
+    /**
+     * Displays a menu in console
+     */
     private static void showMenu() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
@@ -33,6 +36,12 @@ public class Main {
         }
     }
 
+    /**
+     * Gets user menu choice from console
+     * @param scanner the text scanner
+     * @return the choice
+     * @throws Exception if the input is not a valid menu item
+     */
     private static int getChoice(Scanner scanner) throws Exception {
         try {
             int result = Integer.parseInt(scanner.nextLine());
@@ -43,6 +52,12 @@ public class Main {
         }
     }
 
+    /**
+     * Gets the amount to convert from console
+     * @param scanner the text scanner
+     * @return the amount
+     * @throws Exception if amount is nan or a negative number
+     */
     private static double getAmount(Scanner scanner) throws Exception {
         try {
             double result = Double.parseDouble(scanner.nextLine());
@@ -53,6 +68,12 @@ public class Main {
         }
     }
 
+    /**
+     * Handles the user input by calling CurrencyConverter with the inputs and returns the result
+     * @param choice a valid menu choice
+     * @param amount an amount to be converted
+     * @return a string describing the result with accompanying date and time of conversion
+     */
     private static String handleInput(int choice, double amount) {
         String time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("EEEE d MMMM H:mm"));
         String resultString = "%.2f %s converted to %s is: %.2f %s at " + time;
