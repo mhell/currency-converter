@@ -1,5 +1,7 @@
 package se.mattiashellman.lexicon;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 import static se.mattiashellman.lexicon.CurrencyConverter.Currency;
 
@@ -52,7 +54,8 @@ public class Main {
     }
 
     private static String handleInput(int choice, double amount) {
-        String resultString = "%.2f %s converted to %s is: %.2f %s";
+        String time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("EEEE d MMMM H:mm"));
+        String resultString = "%.2f %s converted to %s is: %.2f %s at " + time;
         double resultAmount;
         switch (choice) {
             case 1:
