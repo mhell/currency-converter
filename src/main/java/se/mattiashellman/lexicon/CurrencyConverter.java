@@ -8,19 +8,19 @@ public class CurrencyConverter {
     }
 
     /**
-     *      SEK   USD   EURO
-     * SEK  1.0   0.11  0.91
-     * USD  9.46  1.0   0.86
-     * EURO 11.03 1.17  1.0
+     *      SEK     USD     EURO
+     * SEK  1.0     0.1057  0.0906
+     * USD  9.4617  1.0     0.8576
+     * EURO 11.0322 1.1660  1.0
      */
     private static final double[][] exchangeRates = {
-            {1.0, 0.11, 0.91},
-            {9.46, 1.0, 0.86},
-            {11.03, 1.17, 1.0}
+            {1.0, 0.1057, 0.0906},
+            {9.4617, 1.0, 0.8576},
+            {11.0322, 1.1660, 1.0}
     };
 
     public static Double convert(Currency from, Currency to, Double amount) {
-        return exchangeRates[from.ordinal()][to.ordinal()];
+        return exchangeRates[from.ordinal()][to.ordinal()] * amount;
     }
 }
 
