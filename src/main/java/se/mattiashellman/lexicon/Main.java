@@ -75,7 +75,7 @@ public class Main {
      * @return a string describing the result with accompanying date and time of conversion
      */
     private static String handleInput(int choice, double amount) {
-        String time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("EEEE d MMMM H:mm"));
+        String time = LocalDateTime.of(2025, 10, 16, 11, 48).format(DateTimeFormatter.ofPattern("EEEE d MMMM H:mm"));
         String resultString = "%.2f %s converted to %s is: %.2f %s at " + time;
         double resultAmount;
         switch (choice) {
