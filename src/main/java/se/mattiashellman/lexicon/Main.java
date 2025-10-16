@@ -43,9 +43,11 @@ public class Main {
 
     private static double getAmount(Scanner scanner) throws Exception {
         try {
-            return Double.parseDouble(scanner.nextLine());
+            double result = Double.parseDouble(scanner.nextLine());
+            if (result < 0) throw new Exception("negative amount");
+            return result;
         } catch (NumberFormatException e) {
-            throw new Exception("incorrect number");
+            throw new Exception("not a number");
         }
     }
 
