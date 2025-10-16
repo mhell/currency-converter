@@ -1,6 +1,7 @@
 package se.mattiashellman.lexicon;
 
 import java.util.Scanner;
+import static se.mattiashellman.lexicon.CurrencyConverter.Currency;
 
 public class Main {
     public static void main (String[] args) {
@@ -23,7 +24,7 @@ public class Main {
                 if (choice == 0) break;
                 System.out.print("Enter amount: ");
                 double amount = getAmount(scanner);
-                handleInput(choice, amount);
+                System.out.println("\n" + handleInput(choice, amount));
             } catch (Exception e) {
                 System.out.println("\nError: " + e.getMessage());
             }
@@ -48,7 +49,30 @@ public class Main {
         }
     }
 
-    private static void handleInput(int choice, double amount) {
+    private static String handleInput(int choice, double amount) {
+        String resultString = "%.2f %s converted to %s is: %.2f %s";
+        double resultAmount;
+        switch (choice) {
+            case 1:
+                resultAmount = CurrencyConverter.convert(Currency.SEK, Currency.USD, amount);
+                resultString = String.format(resultString, amount, Currency.SEK, Currency.USD, resultAmount, Currency.USD);
+                break;
+            case 2:
+                resultAmount = CurrencyConverter.convert(Currency.USD, Currency.SEK, amount);
+                resultString = String.format(resultString, amount, Currency.USD, Currency.SEK, resultAmount, Currency.SEK);
+                break;
+            case 3:
+                resultAmount = CurrencyConverter.convert(Currency.SEK, Currency.EURO, amount);
+                resultString = String.format(resultString, amount, Currency.SEK, Currency.EURO, resultAmount, Currency.EURO);
+                break;
+            case 4:
+                resultAmount = CurrencyConverter.convert(Currency.EURO, Currency.SEK, amount);
+                resultString = String.format(resultString, amount, Currency.EURO, Currency.SEK, resultAmount, Currency.SEK);
+                break;
+            case 0:
+                System.exit(0);
+        }
+        return resultString;
     }
 }
 

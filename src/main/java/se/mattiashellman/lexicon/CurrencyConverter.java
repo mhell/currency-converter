@@ -1,12 +1,14 @@
 package se.mattiashellman.lexicon;
 
-import java.util.function.Function;
-
 public class CurrencyConverter {
+    public enum Currency {
+        SEK,
+        USD,
+        EURO
+    }
 
-
-    public static Double convert(String from, String to) {
-        return 0d;
+    public static Double convert(Currency from, Currency to, Double amount) {
+        return 100d;
     }
 }
 
