@@ -1,5 +1,7 @@
 package se.mattiashellman.lexicon;
 
+import java.time.LocalDateTime;
+
 public class CurrencyConverter {
     public enum Currency {
         SEK,
@@ -7,8 +9,8 @@ public class CurrencyConverter {
         EURO
     }
 
-    // Exchange rates USD/SEK, EUR/SEK, USD/EUR
     private static final double USDSEK = 9.4580, EURSEK = 11.0259, USDEUR = 0.8576;
+    private static final LocalDateTime ratesDateStamp = LocalDateTime.of(2025, 10, 18, 10, 36);
 
     /**
      * Conversion lookup
@@ -32,6 +34,14 @@ public class CurrencyConverter {
      */
     public static Double convert(Currency from, Currency to, Double amount) {
         return exchangeRates[from.ordinal()][to.ordinal()] * amount;
+    }
+
+    /**
+     * Gets the date and time of the exchange rates
+     * @return the rates timestamp
+     */
+    public static LocalDateTime getRatesDateStamp() {
+        return ratesDateStamp;
     }
 }
 
