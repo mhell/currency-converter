@@ -7,16 +7,20 @@ public class CurrencyConverter {
         EURO
     }
 
+    // Exchange rates USD/SEK, EUR/SEK, USD/EUR
+    private static final double USDSEK = 9.4580, EURSEK = 11.0259, USDEUR = 0.8576;
+
     /**
-     *      SEK     USD     EURO
-     * SEK  1.0     0.1057  0.0906
-     * USD  9.4617  1.0     0.8576
-     * EURO 11.0322 1.1660  1.0
+     * Conversion lookup
+     *       SEK      USD        EURO
+     * SEK   1.0      1/USDSEK   1/EURSEK
+     * USD   USDSEK   1.0        USDEUR
+     * EURO  EURSEK   1/USDEUR   1.0
      */
     private static final double[][] exchangeRates = {
-            {1.0, 0.1057, 0.0906},
-            {9.4617, 1.0, 0.8576},
-            {11.0322, 1.1660, 1.0}
+            {1.0,    1/USDSEK, 1/EURSEK},
+            {USDSEK, 1.0,      USDEUR},
+            {EURSEK, 1/USDEUR, 1.0}
     };
 
     /**
